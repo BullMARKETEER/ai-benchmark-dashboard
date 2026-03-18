@@ -1,0 +1,22 @@
+# render.yaml — Render Blueprint
+# Deploys the full-stack AI Benchmark Dashboard as a single web service.
+# The server serves the React build in production.
+#
+# Usage:
+#   1. Connect your GitHub repo on render.com
+#   2. Render auto-detects this file
+#   3. Add OPENAI_API_KEY in the Render dashboard (Environment → Secret)
+
+services:
+  - type: web
+    name: ai-benchmark-dashboard
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm run render:install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false   # You'll set this manually in the Render dashboard

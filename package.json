@@ -7,7 +7,10 @@
     "server": "cd server && npm run dev",
     "client": "cd client && set DANGEROUSLY_DISABLE_HOST_CHECK=true && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && node index.js",
+    "render:install": "cd server && npm install && cd ../client && npm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
