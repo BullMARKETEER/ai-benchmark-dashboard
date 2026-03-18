@@ -1,0 +1,15 @@
+{
+  "name": "ai-benchmark-dashboard",
+  "version": "1.0.0",
+  "description": "Production-ready AI Benchmark Dashboard with prompt analysis, multi-model execution, and cost/energy estimation",
+  "private": true,
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "client": "cd client && set DANGEROUSLY_DISABLE_HOST_CHECK=true && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

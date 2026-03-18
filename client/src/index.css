@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────── */
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+
+  /* Smoother scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}
+
+/* ── Component utilities ───────────────────────────────── */
+@layer components {
+  .card {
+    @apply rounded-xl border border-gray-800/60 bg-gray-900/50 p-5 shadow-lg backdrop-blur-sm;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .badge-high   { @apply bg-red-900/40 text-red-300 ring-1 ring-red-700/50; }
+  .badge-medium { @apply bg-amber-900/40 text-amber-300 ring-1 ring-amber-700/50; }
+  .badge-low    { @apply bg-emerald-900/40 text-emerald-300 ring-1 ring-emerald-700/50; }
+}
+
+/* ── Animations ────────────────────────────────────────── */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.35s ease-out both;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out both;
+  }
+  .animate-tooltip-in {
+    animation: tooltipIn 0.15s ease-out both;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tooltipIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Thin scrollbar for horizontal scroll areas ───────── */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 rounded-full;
+}
+
+/* ── Tabular-nums helper ──────────────────────────────── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
